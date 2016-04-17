@@ -200,7 +200,7 @@ p.capitalize:first-letter {
 
 /* Button Call To Action */
 .btn-cta {
-  color: #ffffff;
+  color: #000000;
   background-color: transparent;
   border-color: #ffffff;
   font-family: 'Ruda', sans-serif;
@@ -546,8 +546,8 @@ p.capitalize:first-letter {
 }
 
 #cta-bar {
-	background: #2f2f2f;
-	color: white;
+	background: #f2f2f2;
+	color: #000000;
 	padding-top: 40px;
 	padding-bottom: 40px;
 	
@@ -570,7 +570,7 @@ p.capitalize:first-letter {
 }
 
 #cta-bar h4 {
-	color: white;
+	color: #000000;
 	font-weight: 400;
 }
 

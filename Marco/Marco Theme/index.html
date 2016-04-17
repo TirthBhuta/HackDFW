@@ -80,7 +80,7 @@
     	<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2 mt">
-					<h3><font size = "17"><font color="#000000">InsurIoT</font></font></h3><br>
+					<h3><font size = "17"><font color="#FFFFFF">InsurIoT</font></font></h3><br>
 					<h2 class="animation slideDown"><font size = "7">Home insurance reimagined.</font></h2>
 				</div>
 				
@@ -99,15 +99,12 @@
 				</div><!-- /col-lg-4 -->
 			</div><!-- /row -->
 			
-			<div class="row centered">
+			<div class="row centered col-lg-offset-2">
 				<div class="col-lg-3 pt">
 					<img class="img-responsive" src="assets/img/clients/1.png" alt="">
 				</div>
 				<div class="col-lg-3 pt">
 					<img class="img-responsive" src="assets/img/clients/2.png" alt="">
-				</div>
-				<div class="col-lg-3 pt">
-					<img class="img-responsive" src="assets/img/clients/3.png" alt="">
 				</div>
 				<div class="col-lg-3 pt">
 					<img class="img-responsive" src="assets/img/clients/4.png" alt="">
@@ -123,7 +120,7 @@
 	    <div class="container" ALIGN=CENTER>
 	    	<div class="row mt">
 	    		<div class="col-lg-4 col-lg-offset-4 centered">
-	    			<h3>Different Stages</h3>
+	    			<h3>Process</h3>
 	    			<hr>
 	    		</div>
 	    	</div>
@@ -146,18 +143,28 @@
 	=============================================================================================================================>    
 	<div id="black">
 		<div class="container pt">
-			<div class="row mt centered" ALIGN=LEFT>
-				<div class="col-lg-3" ALIGN=LEFT>
+			<div class="row mt centered">
+				<div class="col-lg-3 col-lg-offset-3 centered">
 					<p><i class="fa fa-code-fork" ></i></p>
 					<h1>21.337</h1>
 					<hr>
+					<h4>Number of devices</h4>
 				</div>
-				<div class="row mt centered" ALIGN = LEFT>
+				<!--<div class="row mt centered" ALIGN = LEFT>
 					<h4>Total number of devices connected</h4>
+				</div>-->
+				
+				<div class="col-lg-3 col-lg-offset-1">
+					<p><i class="fa fa-tag" ></i></p>
+					<h1>107</h1>
+					<hr>
+				<!--</div>
+				<div class="row mt centered" ALIGN = LEFT>-->
+					<h4>Total value of goods</h4>
 				</div>
 			</div>	
 			
-			<div class="row mt centered" ALIGN=LEFT>
+		<!--	<div class="row mt centered" ALIGN=LEFT>
 				<div class="col-lg-3"  ALIGN=LEFT>
 					<h4>Computers</h4>
 					<p><i class="fa fa-desktop"></i></p>
@@ -184,17 +191,7 @@
 					<h4>Types of devices connected</h4>
 				</div>
 			</div>
-			
-			<div class="row mt centered" ALIGN=LEFT>
-				<div class="col-lg-3" ALIGN=LEFT>
-					<p><i class="fa fa-tag" ></i></p>
-					<h1>107</h1>
-					<hr>
-				</div>
-				<div class="row mt centered" ALIGN = LEFT>
-					<h4>Total value of goods</h4>
-				</div>	
-			</div>
+			-->
 
 			</div><!-- /row -->
 		</div><!-- /container -->
@@ -202,23 +199,64 @@
 
 	<! ========== CALL TO ACTION BAR =============================================================================================== 
 	=============================================================================================================================>    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+	<span id="computercount"></span> Computers
+	
+	<script>
+	var data1;
+	
+	$(document).ready(function(){
+		$("button").click(function(){
+	$.post("http://hackdfw.brooksmcmillin.com/api/getdata.php", null, function(data) {
+	data=$.parseJSON(data);
+	$("computers").html(data[0]);
+	$("phones").html(data[1]);
+	$("rasberypi").html(data[2]);
+	$("other").html(data[3]);
+	
+
+		
+	$("#calculate_quote").html(calculateQuote(data));
+	
+	})
+	});
+	
+	function calculateQuote(data)
+	{
+		var data0 = parseInt(data[0]);
+		var data1 = parseInt(data[1]);
+		var data2 = parseInt(data[2]);
+		var data3 = parseInt(data[3]);	
+		
+		return (data0+data1+data2+data3);
+	}
+	
+	});
+	</script>
+	<body>
+	
 	<div id="cta-bar">
 		<div class="container">
 			<div class="row centered">
-				<a href="#"><h4><font size = 6>Get Quote</font></h4></a>
+				<a href="#"><button><font size = 6>Get Quote</font></button></a>
 			</div>
-			</div><!-- /container -->
-			</div><!-- /cta-bar -->
+		</div><!-- /container -->
+	</div><!-- /cta-bar -->
+	
+	</body>
+	
+		
 		
 	<div id="black">
 		<div class="container pt">		
-			<div class="row mt centered" ALIGN=LEFT>
-				<div class="col-lg-3" ALIGN=LEFT>
-					<p><i class="fa fa-money" ></i></p>
-					<h1>209</h1>
+			<div class="row mt centered">
+				<div class="col-lg-3 col-lg-offset-5">
+					<p><i class="fa fa-money"></i></p>
+					<h1 id="calculate_quote"></h1>
 					<hr>
-				</div>
-				<div class="row mt centered" ALIGN = LEFT>
+				<!--</div>
+				<div class="row mt centered" ALIGN = LEFT> -->
 					<h4>Insurance Quote</h4>
 				</div>
 			</div>
@@ -235,14 +273,14 @@
 				<div class="col-lg-3">
 					<h4>Contact Us:</h4>
 					<p>
-						Brooks McMillin<br/>
-						Tirth Bhuta<br/>
-						Adam Edward<br/>
+						<a href="https://www.linkedin.com/in/brooks-mcmillin-25b08427">Brooks McMillin</a><br/>
+						<a href="https://www.linkedin.com/in/tirth-bhuta-9797b469">Tirth Bhuta</a><br/>
+						<a href="https://www.linkedin.com/in/adamperschke">Adam Edward</a><br/>
 					</p>
-					<p>
+					<!--<p>
 						<i class="fa fa-mobile"></i> +55 4893.8943<br/>
 						<i class="fa fa-envelope-o"></i> hello@brooksmcmillian.com
-					</p>
+					</p>-->
 				</div><! --/col-lg-3 -->		
 			</div><! --/row -->
 		</div><!-- /container -->
@@ -256,7 +294,7 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/retina.js"></script>
 
-
+<!--
   	<script>
 		$(window).scroll(function() {
 			$('.si').each(function(){
@@ -269,7 +307,7 @@
 			});
 		});
 	</script>    
-
+-->
 
 
   
