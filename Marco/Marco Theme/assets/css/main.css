@@ -322,9 +322,10 @@ p.capitalize:first-letter {
 /* ================== MAIN WRAP SECTIONS ================== */
 
 #headerwrap {
-	background: url(../img/bg03.jpg) no-repeat center top;
+	background: url("../img/bg03.jpg") no-repeat center top;
 	margin-top: 0px;
 	padding-top: 50px;
+	opacity: 0.7;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 450px;
